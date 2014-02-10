@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+ 
+<struts>
+	<include file="struts-default.xml"/>
+    <constant name="struts.enable.DynamicMethodInvocation"
+        value="false" />
+    <constant name="struts.devMode" value="false" />
+    <constant name="struts.custom.i18n.resources"
+        value="ApplicationResources,asset" />
+
+	<constant name="struts.objectFactory" 
+		value="org.apache.struts2.spring.StrutsSpringObjectFactory" />
+ 	<constant name="struts.objectFactory.spring.autoWire" value="name"/>
+
+    <package name="default" extends="struts-default" namespace="/">
+	 	<default-interceptor-ref name="paramsPrepareParamsStack"/>
+        <action name="login" method="execute"
+            class="com.limited.app.security.LoginAction">
+            <result name="success" type="redirectAction">indexinter</result>
+            <result name="error">/jsp/security/login.jsp</result>
+        </action>
+		<action name="indexalloctype" class="com.limited.app.action.AlloctypeAction" method="list">
+			<result name="success">/WEB-INF/jsp/alloctypeList.jsp</result>
+		</action>        
+		<action name="crudalloctype_save" class="com.limited.app.action.AlloctypeAction" method="save">
+			<result name="success" type="redirectAction">indexalloctype</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudalloctype_delete" class="com.limited.app.action.AlloctypeAction" method="delete">
+			<result name="success" type="redirectAction">indexalloctype</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/alloctypeDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/alloctypeForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudalloctype_input" class="com.limited.app.action.AlloctypeAction" method="input">
+			<result name="success" type="redirectAction">indexalloctype</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/alloctypeForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudalloctype_select" class="com.limited.app.action.AlloctypeAction" method="select">
+			<result name="success" type="redirectAction">indexalloctype</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/alloctypeDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexasset" class="com.limited.app.action.AssetAction" method="list">
+			<result name="success">/WEB-INF/jsp/assetList.jsp</result>
+		</action>        
+		<action name="crudasset_save" class="com.limited.app.action.AssetAction" method="save">
+			<result name="success" type="redirectAction">indexasset</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudasset_delete" class="com.limited.app.action.AssetAction" method="delete">
+			<result name="success" type="redirectAction">indexasset</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/assetDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/assetForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudasset_input" class="com.limited.app.action.AssetAction" method="input">
+			<result name="success" type="redirectAction">indexasset</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudasset_select" class="com.limited.app.action.AssetAction" method="select">
+			<result name="success" type="redirectAction">indexasset</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/assetDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudasset_cancel" class="com.limited.app.action.AssetAction" method="cancel">
+			<result name="success" type="redirectAction">indexasset</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexassetinv" class="com.limited.app.action.AssetinvAction" method="list">
+			<result name="success">/WEB-INF/jsp/assetinvList.jsp</result>
+		</action>        
+		<action name="crudassetinv_save" class="com.limited.app.action.AssetinvAction" method="save">
+			<result name="success" type="redirectAction">indexassetinv</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_delete" class="com.limited.app.action.AssetinvAction" method="delete">
+			<result name="success" type="redirectAction">indexassetinv</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/assetinvDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/assetinvForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_input" class="com.limited.app.action.AssetinvAction" method="input">
+			<result name="success" type="redirectAction">indexassetinv</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetinvForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_select" class="com.limited.app.action.AssetinvAction" method="select">
+			<result name="success" type="redirectAction">indexassetinv</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/assetinvDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexassetinv_alloc" class="com.limited.app.action.Assetinv_allocAction" method="list">
+			<result name="success">/WEB-INF/jsp/assetinv_allocList.jsp</result>
+		</action>        
+		<action name="crudassetinv_alloc_save" class="com.limited.app.action.Assetinv_allocAction" method="save">
+			<result name="success" type="redirectAction">indexassetinv_alloc</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_alloc_delete" class="com.limited.app.action.Assetinv_allocAction" method="delete">
+			<result name="success" type="redirectAction">indexassetinv_alloc</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetinv_allocForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_alloc_input" class="com.limited.app.action.Assetinv_allocAction" method="input">
+			<result name="success" type="redirectAction">indexassetinv_alloc</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetinv_allocForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_alloc_select" class="com.limited.app.action.Assetinv_allocAction" method="select">
+			<result name="success" type="redirectAction">indexassetinv_alloc</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexassetinv_inter" class="com.limited.app.action.Assetinv_interAction" method="list">
+			<result name="success">/WEB-INF/jsp/assetinv_interList.jsp</result>
+		</action>        
+		<action name="crudassetinv_inter_save" class="com.limited.app.action.Assetinv_interAction" method="save">
+			<result name="success" type="redirectAction">indexassetinv_inter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_inter_delete" class="com.limited.app.action.Assetinv_interAction" method="delete">
+			<result name="success" type="redirectAction">indexassetinv_inter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetinv_interForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_inter_input" class="com.limited.app.action.Assetinv_interAction" method="input">
+			<result name="success" type="redirectAction">indexassetinv_inter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetinv_interForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_inter_select" class="com.limited.app.action.Assetinv_interAction" method="select">
+			<result name="success" type="redirectAction">indexassetinv_inter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexassetinv_secind" class="com.limited.app.action.Assetinv_secindAction" method="list">
+			<result name="success">/WEB-INF/jsp/assetinv_secindList.jsp</result>
+		</action>        
+		<action name="crudassetinv_secind_save" class="com.limited.app.action.Assetinv_secindAction" method="save">
+			<result name="success" type="redirectAction">indexassetinv_secind</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_secind_delete" class="com.limited.app.action.Assetinv_secindAction" method="delete">
+			<result name="success" type="redirectAction">indexassetinv_secind</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetinv_secindForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_secind_input" class="com.limited.app.action.Assetinv_secindAction" method="input">
+			<result name="success" type="redirectAction">indexassetinv_secind</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/assetinv_secindForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudassetinv_secind_select" class="com.limited.app.action.Assetinv_secindAction" method="select">
+			<result name="success" type="redirectAction">indexassetinv_secind</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexindustry" class="com.limited.app.action.IndustryAction" method="list">
+			<result name="success">/WEB-INF/jsp/industryList.jsp</result>
+		</action>        
+		<action name="crudindustry_save" class="com.limited.app.action.IndustryAction" method="save">
+			<result name="success" type="redirectAction">indexindustry</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudindustry_delete" class="com.limited.app.action.IndustryAction" method="delete">
+			<result name="success" type="redirectAction">indexindustry</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/industryDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/industryForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudindustry_input" class="com.limited.app.action.IndustryAction" method="input">
+			<result name="success" type="redirectAction">indexindustry</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/industryForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudindustry_select" class="com.limited.app.action.IndustryAction" method="select">
+			<result name="success" type="redirectAction">indexindustry</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/industryDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexinstitution" class="com.limited.app.action.InstitutionAction" method="list">
+			<result name="success">/WEB-INF/jsp/institutionList.jsp</result>
+		</action>        
+		<action name="crudinstitution_save" class="com.limited.app.action.InstitutionAction" method="save">
+			<result name="success" type="redirectAction">indexinstitution</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudinstitution_delete" class="com.limited.app.action.InstitutionAction" method="delete">
+			<result name="success" type="redirectAction">indexinstitution</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/institutionDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/institutionForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudinstitution_input" class="com.limited.app.action.InstitutionAction" method="input">
+			<result name="success" type="redirectAction">indexinstitution</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/institutionForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudinstitution_select" class="com.limited.app.action.InstitutionAction" method="select">
+			<result name="success" type="redirectAction">indexinstitution</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/institutionDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexinter" class="com.limited.app.action.InterAction" method="list">
+			<result name="success">/WEB-INF/jsp/interList.jsp</result>
+		</action>        
+		<action name="crudinter_save" class="com.limited.app.action.InterAction" method="save">
+			<result name="success" type="redirectAction">indexinter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudinter_delete" class="com.limited.app.action.InterAction" method="delete">
+			<result name="success" type="redirectAction">indexinter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/interDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/interForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudinter_input" class="com.limited.app.action.InterAction" method="input">
+			<result name="success" type="redirectAction">indexinter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/interForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudinter_select" class="com.limited.app.action.InterAction" method="select">
+			<result name="success" type="redirectAction">indexinter</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/interDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indexsector" class="com.limited.app.action.SectorAction" method="list">
+			<result name="success">/WEB-INF/jsp/sectorList.jsp</result>
+		</action>        
+		<action name="crudsector_save" class="com.limited.app.action.SectorAction" method="save">
+			<result name="success" type="redirectAction">indexsector</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudsector_delete" class="com.limited.app.action.SectorAction" method="delete">
+			<result name="success" type="redirectAction">indexsector</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/sectorDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/sectorForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudsector_input" class="com.limited.app.action.SectorAction" method="input">
+			<result name="success" type="redirectAction">indexsector</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/sectorForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudsector_select" class="com.limited.app.action.SectorAction" method="select">
+			<result name="success" type="redirectAction">indexsector</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/sectorDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indextemplate" class="com.limited.app.action.TemplateAction" method="list">
+			<result name="success">/WEB-INF/jsp/templateList.jsp</result>
+		</action>        
+		<action name="crudtemplate_save" class="com.limited.app.action.TemplateAction" method="save">
+			<result name="success" type="redirectAction">indextemplate</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudtemplate_delete" class="com.limited.app.action.TemplateAction" method="delete">
+			<result name="success" type="redirectAction">indextemplate</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/templateDep.jsp</result>
+			<result name="input">/WEB-INF/jsp/templateForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudtemplate_input" class="com.limited.app.action.TemplateAction" method="input">
+			<result name="success" type="redirectAction">indextemplate</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/templateForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudtemplate_select" class="com.limited.app.action.TemplateAction" method="select">
+			<result name="success" type="redirectAction">indextemplate</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="select">/WEB-INF/jsp/templateDep.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="indextemplatedetails" class="com.limited.app.action.TemplatedetailsAction" method="list">
+			<result name="success">/WEB-INF/jsp/templatedetailsList.jsp</result>
+		</action>        
+		<action name="crudtemplatedetails_save" class="com.limited.app.action.TemplatedetailsAction" method="save">
+			<result name="success" type="redirectAction">indextemplatedetails</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudtemplatedetails_delete" class="com.limited.app.action.TemplatedetailsAction" method="delete">
+			<result name="success" type="redirectAction">indextemplatedetails</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/templatedetailsForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudtemplatedetails_input" class="com.limited.app.action.TemplatedetailsAction" method="input">
+			<result name="success" type="redirectAction">indextemplatedetails</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="input">/WEB-INF/jsp/templatedetailsForm.jsp</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+		<action name="crudtemplatedetails_select" class="com.limited.app.action.TemplatedetailsAction" method="select">
+			<result name="success" type="redirectAction">indextemplatedetails</result>
+			<result name="lastaction" type="redirectAction">${lastAction}</result>
+			<result name="error">/WEB-INF/jsp/error.jsp</result>
+		</action>
+	</package>
+</struts>
+

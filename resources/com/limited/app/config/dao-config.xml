@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" 
+	"http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+    <!-- scan for mappers and let them be autowired -->
+ <!--   <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.limited.app.db.dao" />
+        <property name="sqlSessionFactory" value="sqlSessionFactory" />
+    </bean>
+  -->
+   <bean id="alloctypeMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession" />
+		<property name="mapperInterface" value="com.limited.app.db.dao.AlloctypeMapper" />
+	</bean>
+    <bean id="assetinvAllocMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.AssetinvAllocMapper" />
+	</bean>
+    <bean id="assetinvInterMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.AssetinvInterMapper" />
+	</bean>
+    <bean id="assetinvMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.AssetinvMapper" />
+	</bean>
+	<bean id="assetinvSecindMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.AssetinvSecindMapper" />
+	</bean>
+    <bean id="assetMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.AssetMapper" />
+	</bean>
+    <bean id="industryMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.IndustryMapper" />
+	</bean>
+	<bean id="institutionMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.InstitutionMapper" />
+	</bean>
+	<bean id="interMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.InterMapper" />
+	</bean>
+	<bean id="sectorMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.SectorMapper" />
+	</bean>
+	<bean id="templatedetailsMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.TemplatedetailsMapper" />
+	</bean>
+	<bean id="templateMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+		<property name="sqlSessionTemplate" ref="sqlSession"  />
+		<property name="mapperInterface" value="com.limited.app.db.dao.TemplateMapper" />
+	</bean>
+ 
+</beans>

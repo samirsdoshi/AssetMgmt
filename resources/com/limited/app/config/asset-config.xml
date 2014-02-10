@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <!DOCTYPE configuration
+      PUBLIC "-//www.mybatis.org//DTD Config 3.0//EN"
+      "http://www.mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="lazyLoadingEnabled" value="false" />
+	</settings><!--
+	<typeAliases>
+		Define a aliases for easy use of them inside the mapper
+		<typeAlias type="com.limited.app.bean.Alloctype" alias="alloctype" />
+		<typeAlias type="com.limited.app.bean.Asset" alias="asset" />
+		<typeAlias type="com.limited.app.bean.Assetinv" alias="assetinv" />
+		<typeAlias type="com.limited.app.bean.AssetinvAlloc" alias="assetinvalloc" />
+		<typeAlias type="com.limited.app.bean.AssetinvInter" alias="assetinvinter" />
+		<typeAlias type="com.limited.app.bean.AssetinvSecind" alias="assetinvsecind" />
+		<typeAlias type="com.limited.app.bean.Industry" alias="industry" />
+		<typeAlias type="com.limited.app.bean.Institution" alias="institution" />
+		<typeAlias type="com.limited.app.bean.Inter" alias="inter" />
+		<typeAlias type="com.limited.app.bean.Sector" alias="sector" />
+		<typeAlias type="com.limited.app.bean.Template" alias="template" />
+		<typeAlias type="com.limited.app.bean.Templatedetails" alias="templatedetails" />
+	</typeAliases>
+--></configuration>

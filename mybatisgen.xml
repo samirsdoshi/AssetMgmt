@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+  <classPathEntry location="C:\Development\lib\sqljdbc4.jar" />
+
+  <context id="MySQLTables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.microsoft.sqlserver.jdbc.SQLServerDriver"
+        connectionURL="jdbc:sqlserver://localhost:1433;databaseName=asset;user=iportdb;password=iportdb;">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+
+    <javaModelGenerator targetPackage="com.limited.app.bean" targetProject="Test">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+
+    <sqlMapGenerator targetPackage="com.limited.app.db.map"  targetProject="Test">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+
+    <javaClientGenerator type="XMLMAPPER" targetPackage="com.limited.app.db.dao"  targetProject="Test">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+
+    <table  tableName="alloctype" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>
+
+    <table  tableName="asset" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+    <table  tableName="assetinv" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+
+    <table  tableName="assetinv_alloc" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+    <table  tableName="assetinv_inter" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+    <table  tableName="assetinv_secind" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+    <table  tableName="industry" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+
+    <table  tableName="institution" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+    
+
+    <table  tableName="inter" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+    
+
+    <table  tableName="sector" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+
+    <table  tableName="template" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+
+    <table  tableName="templatedetails" >
+      <property name="useActualColumnNames" value="false"/>
+      <generatedKey column="ID" sqlStatement="SqlServer" identity="true" />
+    </table>	
+
+	</context>
+</generatorConfiguration>
